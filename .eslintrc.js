@@ -17,4 +17,8 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
   },
+  rules: {
+    'no-var': 'error',
+    'prefer-const': 'error',
+  },
 };
