@@ -1,7 +1,7 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
+import router from './routes/index';
 const app = express();
-const router = require('./routes/index');
 const port = 3000;
 
 // view engine セットアップ
