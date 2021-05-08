@@ -3,7 +3,7 @@ module.exports = {
   env: {
     browser: true,
     commonjs: true,
-    es6: true,
+    es2021: true,
     node: true,
   },
   globals: {
@@ -12,13 +12,30 @@ module.exports = {
     NODE_ENV: 'readonly',
     __DEV__: true,
   },
-  extends: ['eslint:recommended', 'prettier'],
-  parser: '@babel/eslint-parser',
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+  ],
+  plugins: ['@typescript-eslint'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
+    ecmaVersion: 2020,
+    tsconfigRootDir: __dirname,
+    project: './tsconfig.eslint.json',
   },
   rules: {
-    'no-var': 'error',
-    'prefer-const': 'error',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'after-used',
+        argsIgnorePattern: '_',
+        ignoreRestSiblings: false,
+        varsIgnorePattern: '_',
+      },
+    ],
   },
 };
