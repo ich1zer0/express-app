@@ -10,6 +10,9 @@
   "scss.validate": false,
   "stylelint.enable": true,
   "eslint.alwaysShowStatus": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
   "editor.codeLens": true,
   "testExplorer.codeLens": true
 }
