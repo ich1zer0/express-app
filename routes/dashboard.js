@@ -3,8 +3,8 @@ const router = express.Router();
 
 router.get('/', (_, res) => {
   res.render('layout/default', {
-    title: 'Homes',
-    template: '../home',
+    title: 'Dashboard',
+    template: '../dashboard',
   });
 });
 
