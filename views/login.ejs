@@ -2,7 +2,7 @@
   <div class="card">
     <h1 class="card-header h6"><%= title %></h1>
     <div class="card-body">
-      <form>
+      <form method="POST" action="/login">
         <div class="form-box d-sm-table w-100 mx-auto">
           <dl class="d-sm-table-row">
             <dt class="d-sm-table-cell fw-normal p-sm-2 text-sm-end">
@@ -16,7 +16,9 @@
                 name="email"
                 id="inputEmail"
                 class="form-control"
+                value="<% if (values.email) { %><%= values.email %><% } %>"
               />
+              <%- include('partials/error', {error: errors.email}); %>
             </dd>
           </dl>
           <dl class="d-sm-table-row">
@@ -29,7 +31,10 @@
                 name="password"
                 id="inputPassword"
                 class="form-control"
+                autocomplete="new-password"
+                value="<% if (values.password) { %><%= values.password %><% } %>"
               />
+              <%- include('partials/error', {error: errors.password}); %>
             </dd>
           </dl>
           <dl class="d-sm-table-row">
