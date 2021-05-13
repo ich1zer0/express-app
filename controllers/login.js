@@ -1,6 +1,7 @@
 const data = {
   title: 'Login',
   view: '../login',
+  errors: {},
 };
 
 module.exports = {

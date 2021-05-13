@@ -1,6 +1,7 @@
 const data = {
   title: 'Dashboard',
   view: '../dashboard',
+  errors: {},
 };
 
 module.exports = {

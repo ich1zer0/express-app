@@ -1,6 +1,7 @@
 const data = {
   title: 'Register',
   view: '../register',
+  errors: {},
 };
 
 module.exports = {
