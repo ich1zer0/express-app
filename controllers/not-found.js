@@ -1,6 +1,7 @@
 const data = {
   title: '404 NotFound',
   view: '../not-found',
+  values: {},
   errors: {},
 };
 

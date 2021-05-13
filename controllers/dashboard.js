@@ -1,6 +1,7 @@
 const data = {
   title: 'Dashboard',
   view: '../dashboard',
+  values: {},
   errors: {},
 };
 

@@ -1,6 +1,7 @@
 const data = {
   title: 'Login',
   view: '../login',
+  values: {},
   errors: {},
 };
 
