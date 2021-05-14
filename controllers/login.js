@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator');
 const clone = require('rfdc/default');
-const { email, password } = require('./validations');
+const { email, password } = require('../validates/index');
 
 const data = {
   title: 'Login',
