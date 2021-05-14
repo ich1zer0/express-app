@@ -41,14 +41,19 @@
               <label for="inputPassword" class="text-nowrap"> Password </label>
             </dt>
             <dd class="d-sm-table-cell w-100 p-sm-2">
-              <input
-                type="password"
-                name="password"
-                id="inputPassword"
-                class="form-control"
-                autocomplete="new-password"
-                value="<% if (values.password) { %><%= values.password %><% } %>"
-              />
+              <div class="input-group flex-nowrap">
+                <input
+                  type="password"
+                  name="password"
+                  id="inputPassword"
+                  class="form-control"
+                  autocomplete="new-password"
+                  value="<% if (values.password) { %><%= values.password %><% } %>"
+                />
+                <span class="input-group-text js-eye-fill" role="button">
+                  <i class="bi bi-eye-slash-fill"></i>
+                </span>
+              </div>
               <%- include('partials/error', {error: errors.password}); %>
             </dd>
           </dl>
@@ -59,14 +64,19 @@
               </label>
             </dt>
             <dd class="d-sm-table-cell w-100 p-sm-2">
-              <input
-                type="password"
-                name="confirmPassword"
-                id="inputConfirmPassword"
-                class="form-control"
-                autocomplete="new-password"
-                value="<% if (values.confirmPassword) { %><%= values.confirmPassword %><% } %>"
-              />
+              <div class="input-group flex-nowrap">
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  id="inputConfirmPassword"
+                  class="form-control"
+                  autocomplete="new-password"
+                  value="<% if (values.confirmPassword) { %><%= values.confirmPassword %><% } %>"
+                />
+                <span class="input-group-text js-eye-fill" role="button">
+                  <i class="bi bi-eye-slash-fill"></i>
+                </span>
+              </div>
               <%- include('partials/error', {error: errors.confirmPassword}); %>
             </dd>
           </dl>
