@@ -12,7 +12,6 @@ eyeFills.forEach((eyeFill) => {
     };
     const input = target.previousElementSibling;
 
-    console.log(input);
     toggleClass(icon, iconClass);
     togglePasswordView(input, icon.classList.contains(iconClass.on));
   });
