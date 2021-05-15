@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('../partials/meta'); %>
+    <title><%= title %></title>
+    <%- include('../partials/assets'); %>
+  </head>
+  <body class="d-flex flex-column vh-100 bg-light">
+    <%- include('../partials/header_auth'); %>
+    <div class="flex-grow-1 flex-shrink-0 container my-4">
+      <main>
+        <%- include(view, {title: title, values: values, errors: errors}); %>
+      </main>
+    </div>
+    <%- include('../partials/footer'); %>
+  </body>
+</html>
