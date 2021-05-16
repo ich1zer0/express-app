@@ -1,6 +1,6 @@
 const requireEsm = require('esm')(module);
 const fetch = require('node-fetch');
-const shuffle = requireEsm('../../public/javascripts/libs/shuffle.js');
+const shuffle = requireEsm('../../public/javascripts/libs/shuffle.js').default;
 
 class Quiz {
   constructor(question, genre, difficulty, correctAnswer, incorrectAnswers) {
@@ -10,7 +10,7 @@ class Quiz {
       difficulty,
       correctAnswer,
       incorrectAnswers,
-      choices: shuffle.default([correctAnswer, ...incorrectAnswers]),
+      choices: shuffle([correctAnswer, ...incorrectAnswers]),
     };
   }
   get getQuiz() {
