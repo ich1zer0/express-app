@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const apiQuizController = require('../../controllers/api/quiz');
+
+const router = express.Router();
 
 router.get('/', apiQuizController.get);
 

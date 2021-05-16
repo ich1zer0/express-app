@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const notfoundController = require('../controllers/not-found');
+
+const router = express.Router();
 
 router.use(notfoundController);
 
