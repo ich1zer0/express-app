@@ -7,6 +7,7 @@ const data = {
   view: '../login',
   values: {},
   errors: {},
+  scripts: ['auth.js'],
 };
 
 module.exports = {

@@ -16,14 +16,3 @@ eyeFills.forEach((eyeFill) => {
     togglePasswordView(input, icon.classList.contains(iconClass.on));
   });
 });
-
-const quizStartBtn = document.getElementById('quizStartBtn');
-quizStartBtn.addEventListener('click', async () => {
-  try {
-    const response = await fetch('http://localhost:3000/api/quiz');
-    const quiz = await response.json();
-    console.log(quiz);
-  } catch (error) {
-    console.error(error);
-  }
-});

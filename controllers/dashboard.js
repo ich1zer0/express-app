@@ -3,6 +3,7 @@ const data = {
   view: '../dashboard',
   values: {},
   errors: {},
+  scripts: [],
 };
 
 module.exports = {

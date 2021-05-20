@@ -12,6 +12,7 @@ const data = {
   view: '../register',
   values: {},
   errors: {},
+  scripts: ['auth.js'],
 };
 
 module.exports = {

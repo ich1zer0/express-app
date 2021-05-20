@@ -15,4 +15,6 @@
   crossorigin="anonymous"
   defer
 ></script>
-<script src="/static/javascripts/script.js" type="module" defer></script>
+<% scripts.forEach(function (value) { %>
+<script src="/static/javascripts/<%= value %>" type="module" defer></script>
+<% }); %>

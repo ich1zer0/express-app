@@ -3,6 +3,7 @@ const data = {
   view: '../not-found',
   values: {},
   errors: {},
+  scripts: [],
 };
 
 module.exports = (_, res) => {
