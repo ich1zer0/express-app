@@ -2,11 +2,61 @@
   <div class="card">
     <h1 class="card-header h6"><%= title %></h1>
     <div class="card-body">
-      <div class="d-grid col-6 mx-auto">
-        <button id="quizStartBtn" class="btn btn-primary" type="button">
-          Start
-        </button>
+      <div id="alert" class="alert alert-danger d-none" role="alert"></div>
+
+      <div id="loading">
+        <div id="spinner" class="d-none">
+          <div class="d-flex justify-content-center mb-3">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid col-6 mx-auto">
+          <button id="quizStartButton" class="btn btn-primary" type="button">
+            Start
+          </button>
+        </div>
       </div>
+
+      <section id="quizContainer" class="d-none">
+        <div class="d-md-flex justify-content-md-between align-items-md-end">
+          <h2 class="fs-1 mb-0">Question<span id="id"></span></h2>
+          <div class="d-flex mt-2 mt-md-0">
+            <dl class="d-flex align-items-center mb-0 me-2 ms-md-2 me-md-0">
+              <dt>Genre</dt>
+              <dd class="mb-0 ms-1">
+                <span id="genre" class="badge bg-secondary"></span>
+              </dd>
+            </dl>
+            <dl class="d-flex align-items-center mb-0 me-2 ms-md-2 me-md-0">
+              <dt>Difficulty</dt>
+              <dd class="mb-0 ms-1">
+                <span id="difficulty" class="badge bg-secondary"></span>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <p
+          id="question"
+          class="bg-light text-dark border fs-2 fw-light p-3 mt-2 mb-0"
+        ></p>
+        <div id="choices" class="row mt-3"></div>
+      </section>
+
+      <section id="completeContainer" class="d-none">
+        <h2 class="text-center">
+          あなたの正解数は<span id="numberOfCorrectAnswers"></span>です!!
+        </h2>
+        <p class="text-center">
+          再度チャレンジしたい場合は下記のボタンをクリックしてください。
+        </p>
+        <div class="d-grid col-6 mx-auto">
+          <button id="quizRetryButton" class="btn btn-primary" type="button">
+            Retry
+          </button>
+        </div>
+      </section>
     </div>
   </div>
 </section>

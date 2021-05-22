@@ -3,14 +3,28 @@ const fetch = require('node-fetch');
 const shuffle = requireEsm('../../public/javascripts/libs/shuffle.js').default;
 
 class Quiz {
-  constructor(question, genre, difficulty, correctAnswer, incorrectAnswers) {
+  constructor(
+    id,
+    type,
+    question,
+    genre,
+    difficulty,
+    correctAnswer,
+    incorrectAnswers
+  ) {
     this.quiz = {
+      id,
       question,
       genre,
       difficulty,
       correctAnswer,
       incorrectAnswers,
-      choices: shuffle([correctAnswer, ...incorrectAnswers]),
+      choices:
+        type === 'boolean'
+          ? [correctAnswer, ...incorrectAnswers].sort((a, b) => {
+              return a < b ? 1 : -1;
+            })
+          : shuffle([correctAnswer, ...incorrectAnswers]),
     };
   }
   get getQuiz() {
@@ -25,8 +39,10 @@ module.exports = {
       const data = await response.json();
       const quizArray = await data.results;
 
-      const formattedQuizArray = quizArray.map((quiz) => {
+      const formattedQuizArray = quizArray.map((quiz, index) => {
         const formattedQuiz = new Quiz(
+          index,
+          quiz.type,
           quiz.question,
           quiz.category,
           quiz.difficulty,
