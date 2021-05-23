@@ -11,5 +11,9 @@
   "stylelint.enable": true,
   "eslint.alwaysShowStatus": true,
   "editor.codeLens": true,
-  "testExplorer.codeLens": true
+  "testExplorer.codeLens": true,
+  "htmlhint.options": {
+    "doctype-first": false,
+    "spec-char-escape": false
+  }
 }
