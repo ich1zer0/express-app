@@ -128,4 +128,4 @@ const handleClickChoiceButton = (e) => {
 
 quizRetryButtonElement.addEventListener('click', handleClickQuizRetryButton);
 
-quizStartButton.addEventListener('click', handleClickQuizStartButton);
+quizStartButtonElement.addEventListener('click', handleClickQuizStartButton);
