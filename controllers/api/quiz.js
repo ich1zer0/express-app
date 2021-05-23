@@ -1,6 +1,9 @@
 const requireEsm = require('esm')(module);
-const fetch = require('node-fetch');
 const shuffle = requireEsm('../../public/javascripts/libs/shuffle.js').default;
+const fetcher = requireEsm(
+  '../../public/javascripts/libs/node-fetcher.js'
+).default;
+const { quizApiUrl } = requireEsm('../../public/javascripts/config/quiz.js');
 
 class Quiz {
   constructor(
@@ -35,9 +38,8 @@ class Quiz {
 module.exports = {
   get: async (_, res) => {
     try {
-      const response = await fetch('https://opentdb.com/api.php?amount=10');
-      const data = await response.json();
-      const quizArray = await data.results;
+      const data = await fetcher(quizApiUrl);
+      const quizArray = data.results;
 
       const formattedQuizArray = quizArray.map((quiz, index) => {
         const formattedQuiz = new Quiz(

@@ -1,3 +1,6 @@
+import fetcher from './libs/fetcher.js';
+import { quizApiRouteUrl } from './config/quiz.js';
+
 let quizCollection = [];
 let numberOfQuiz = 0;
 let currentQuestionNumber = 0;
@@ -78,10 +81,10 @@ const handleClickQuizStartButton = async () => {
   numberOfQuiz = 0;
   currentQuestionNumber = 0;
   numberOfCorrectAnswers = 0;
+
   try {
-    const response = await fetch('http://localhost:3000/api/quiz');
-    const data = await response.json();
-    const quizArray = await data.quiz;
+    const data = await fetcher(quizApiRouteUrl);
+    const quizArray = data.quiz;
 
     quizArray.forEach((quiz) => {
       quizCollection.push(quiz);
