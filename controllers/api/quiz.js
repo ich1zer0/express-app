@@ -55,6 +55,7 @@ module.exports = {
       });
       res.json({ quiz: formattedQuizArray });
     } catch (error) {
+      console.error(error);
       res.json({ error });
     }
   },
