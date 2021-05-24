@@ -4,7 +4,7 @@ const {
 } = require('abortcontroller-polyfill/dist/cjs-ponyfill');
 const { fetch } = abortableFetch(require('node-fetch'));
 
-const timeoutMs = 1000 * 10;
+const timeoutMs = 10 * 1000;
 
 const fetcher = async (requestUrl) => {
   const abortController = new AbortController();
@@ -13,11 +13,12 @@ const fetcher = async (requestUrl) => {
 
   try {
     const response = await fetch(requestUrl, { signal });
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
     return response.json();
   } catch (error) {
-    return Promise.reject(
-      new Error(`${response.status}:${response.statusText}`)
-    );
+    return Promise.reject(error);
   }
 };
 
