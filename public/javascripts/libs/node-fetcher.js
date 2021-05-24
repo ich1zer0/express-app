@@ -1,4 +1,8 @@
-const fetch = require('node-fetch');
+const {
+  AbortController,
+  abortableFetch,
+} = require('abortcontroller-polyfill/dist/cjs-ponyfill');
+const { fetch } = abortableFetch(require('node-fetch'));
 
 const timeoutMs = 1000 * 10;
 
