@@ -3,12 +3,19 @@ const Quiz = require('../../models/quizModel.js');
 module.exports = {
   get: async (_, res) => {
     try {
-      const quiz = await Quiz.getQuiz();
-      res.json({ quiz });
+      const quizData = await Quiz.getQuiz();
+      res.json({
+        status: 200,
+        quizData,
+      });
     } catch (error) {
-      console.log('えらー', typeof error);
-      console.error(error);
-      res.json({ error });
+      res
+        .status(error.status)
+        .send(
+          error.status
+            ? `${error.status} エラー: ${error.message}`
+            : 'failed エラー: データの取得に失敗しました。'
+        );
     }
   },
 };
