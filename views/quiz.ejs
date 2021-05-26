@@ -2,13 +2,18 @@
   <div class="card">
     <h1 class="card-header h6"><%= title %></h1>
     <div class="card-body">
-      <div id="alert" class="alert alert-danger mb-0 d-none" role="alert"></div>
-
       <section id="startContainer">
-        <h2 class="text-center">ようこそ</h2>
-        <p class="text-center">
-          クイズに挑戦するには、下のボタンをクリックしてください。
-        </p>
+        <div id="startMessage">
+          <h2 class="text-center">ようこそ</h2>
+          <p class="text-center">
+            クイズに挑戦するには、下のボタンをクリックしてください。
+          </p>
+        </div>
+        <div
+          id="alert"
+          class="alert alert-danger text-center mb-3 d-none"
+          role="alert"
+        ></div>
         <div class="d-grid col-6 mx-auto">
           <button id="startButton" class="btn btn-primary" type="button">
             Start
@@ -17,10 +22,12 @@
       </section>
 
       <section id="loadingContainer" class="d-none">
-        <h2 class="text-center">取得中</h2>
-        <p class="text-center">
-          クイズデータを取得中です。少々お待ちください。
-        </p>
+        <div id="loadingMessage">
+          <h2 class="text-center">取得中</h2>
+          <p class="text-center">
+            クイズデータを取得中です。少々お待ちください。
+          </p>
+        </div>
         <div class="d-flex justify-content-center">
           <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -54,12 +61,14 @@
       </section>
 
       <section id="completeContainer" class="d-none">
-        <h2 class="text-center">
-          あなたの正解数は<span id="numberOfCorrectAnswers"></span>です!!
-        </h2>
-        <p class="text-center">
-          再挑戦したい場合は下記のボタンをクリックしてください。
-        </p>
+        <div id="completeMessage">
+          <h2 class="text-center">
+            あなたの正解数は<span id="numberOfCorrectAnswers"></span>です!!
+          </h2>
+          <p class="text-center">
+            再挑戦したい場合は下記のボタンをクリックしてください。
+          </p>
+        </div>
         <div class="d-grid col-6 mx-auto">
           <button id="retryButton" class="btn btn-primary" type="button">
             Retry
