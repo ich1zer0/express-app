@@ -1,11 +1,29 @@
-<section>
-  <div class="card">
-    <h1 class="card-header h6"><%= title %></h1>
-    <div class="card-body">
-      <p>You are logged in!</p>
-      <div>
-        <a class="btn btn-primary" href="/quiz" role="button">クイズに挑戦</a>
-      </div>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('./partials/meta'); %>
+    <title>Dashboard</title>
+    <%- include('./partials/common_assets'); %>
+  </head>
+  <body class="d-flex flex-column vh-100 bg-light">
+    <%- include('./partials/header'); %>
+    <div class="flex-grow-1 flex-shrink-0 container my-4">
+      <main>
+        <section>
+          <div class="card">
+            <h1 class="card-header h6">Dashboard</h1>
+            <div class="card-body">
+              <p>You are logged in!</p>
+              <div>
+                <a class="btn btn-primary" href="/quiz" role="button">
+                  クイズに挑戦
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-  </div>
-</section>
+    <%- include('./partials/footer'); %>
+  </body>
+</html>

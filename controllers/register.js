@@ -8,18 +8,13 @@ const {
 } = require('../validates/index');
 
 const data = {
-  title: 'Register',
-  view: '../register',
   values: {},
   errors: {},
-  scripts: [
-    '<script src="/static/javascripts/auth.js" type="module" defer></script>',
-  ],
 };
 
 module.exports = {
   get: (_, res) => {
-    res.render('layout/auth', data);
+    res.render('register', data);
   },
   validate: [username, email, password, confirmPassword],
   post: (req, res) => {
@@ -61,7 +56,7 @@ module.exports = {
           confirmPassword: confirmPasswordMessage,
         },
       };
-      res.render('layout/auth', dataWithValueAndError);
+      res.render('register', dataWithValueAndError);
     } else {
       res.redirect('/');
     }

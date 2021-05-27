@@ -3,18 +3,13 @@ const clone = require('rfdc/default');
 const { email, password } = require('../validates/index');
 
 const data = {
-  title: 'Login',
-  view: '../login',
   values: {},
   errors: {},
-  scripts: [
-    '<script src="/static/javascripts/auth.js" type="module" defer></script>',
-  ],
 };
 
 module.exports = {
   get: (_, res) => {
-    res.render('layout/auth', data);
+    res.render('login', data);
   },
   validate: [email, password],
   post: (req, res) => {
@@ -42,7 +37,7 @@ module.exports = {
           password: passwordMessage,
         },
       };
-      res.render('layout/auth', dataWithValueAndError);
+      res.render('login', dataWithValueAndError);
     } else {
       res.redirect('/');
     }
