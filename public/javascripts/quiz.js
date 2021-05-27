@@ -159,7 +159,6 @@ const handleClickStartButton = async () => {
     const data = await fetcher(quizApiRouteUrl);
     // クイズ情報の配列更新
     quizData = data.quizData.map((quiz) => quiz);
-    console.log(quizData);
     // クイズの数を更新
     numberOfQuiz = quizData.length;
     // クイズエリア要素にデータを注入
