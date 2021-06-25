@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('./partials/meta'); %>
+    <title>Quiz</title>
+    <%- include('./partials/common_assets'); %>
+    <script src="/static/javascripts/libs/he.js"></script>
+    <script src="/static/javascripts/quiz.js" type="module" defer></script>
+  </head>
+  <body class="d-flex flex-column vh-100 bg-light">
+    <%- include('./partials/header'); %>
+    <div class="flex-grow-1 flex-shrink-0 container my-4">
+      <main>
+        <section>
+          <div class="card">
+            <h1 class="card-header h6">Quiz</h1>
+            <div class="card-body">
+              <section id="startContainer">
+                <div id="startMessage">
+                  <h2 class="text-center">ようこそ</h2>
+                  <p class="text-center">
+                    クイズに挑戦するには、下のボタンをクリックしてください。
+                  </p>
+                </div>
+                <div
+                  id="alert"
+                  class="alert alert-danger text-center mb-3 d-none"
+                  role="alert"
+                ></div>
+                <div class="d-grid col-6 mx-auto">
+                  <button
+                    id="startButton"
+                    class="btn btn-primary"
+                    type="button"
+                  >
+                    Start
+                  </button>
+                </div>
+              </section>
+
+              <section id="loadingContainer" class="d-none">
+                <div id="loadingMessage">
+                  <h2 class="text-center">取得中</h2>
+                  <p class="text-center">
+                    クイズデータを取得中です。少々お待ちください。
+                  </p>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </section>
+
+              <section id="quizContainer" class="d-none">
+                <div
+                  class="
+                    d-md-flex
+                    justify-content-md-between
+                    align-items-md-end
+                  "
+                >
+                  <h2 class="fs-1 mb-0">Question<span id="quizId"></span></h2>
+                  <div class="d-flex mt-2 mt-md-0">
+                    <dl
+                      class="
+                        d-flex
+                        align-items-center
+                        mb-0
+                        me-2
+                        ms-md-2
+                        me-md-0
+                      "
+                    >
+                      <dt>Genre</dt>
+                      <dd class="mb-0 ms-1">
+                        <span id="quizGenre" class="badge bg-secondary"></span>
+                      </dd>
+                    </dl>
+                    <dl
+                      class="
+                        d-flex
+                        align-items-center
+                        mb-0
+                        me-2
+                        ms-md-2
+                        me-md-0
+                      "
+                    >
+                      <dt>Difficulty</dt>
+                      <dd class="mb-0 ms-1">
+                        <span
+                          id="quizDifficulty"
+                          class="badge bg-secondary"
+                        ></span>
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+                <p
+                  id="quizQuestion"
+                  class="bg-light text-dark border fs-2 fw-light p-3 mt-2 mb-0"
+                ></p>
+                <div id="quizChoices" class="row mt-3"></div>
+              </section>
+
+              <section id="completeContainer" class="d-none">
+                <div id="completeMessage">
+                  <h2 class="text-center">
+                    あなたの正解数は<span id="numberOfCorrectAnswers"></span
+                    >です!!
+                  </h2>
+                  <p class="text-center">
+                    再挑戦したい場合は下記のボタンをクリックしてください。
+                  </p>
+                </div>
+                <div class="d-grid col-6 mx-auto">
+                  <button
+                    id="retryButton"
+                    class="btn btn-primary"
+                    type="button"
+                  >
+                    Retry
+                  </button>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <%- include('./partials/footer'); %>
+  </body>
+</html>

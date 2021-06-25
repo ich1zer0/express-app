@@ -1,80 +1,120 @@
-<section>
-  <div class="card">
-    <h1 class="card-header h6"><%= title %></h1>
-    <div class="card-body">
-      <form method="POST" action="/login">
-        <div class="form-box d-sm-table w-100 mx-auto">
-          <dl class="d-sm-table-row">
-            <dt class="d-sm-table-cell fw-normal p-sm-2 text-sm-end">
-              <label for="inputEmail" class="text-nowrap">
-                E-Mail Address
-              </label>
-            </dt>
-            <dd class="d-sm-table-cell w-100 p-sm-2">
-              <input
-                type="text"
-                name="email"
-                id="inputEmail"
-                class="form-control"
-                value="<% if (values.email) { %><%= values.email %><% } %>"
-              />
-              <%- include('partials/error', {error: errors.email}); %>
-            </dd>
-          </dl>
-          <dl class="d-sm-table-row">
-            <dt class="d-sm-table-cell fw-normal p-sm-2 text-sm-end">
-              <label for="inputPassword" class="text-nowrap"> Password </label>
-            </dt>
-            <dd class="d-sm-table-cell w-100 p-sm-2">
-              <div class="input-group flex-nowrap">
-                <input
-                  type="password"
-                  name="password"
-                  id="inputPassword"
-                  class="form-control"
-                  autocomplete="new-password"
-                  value="<% if (values.password) { %><%= values.password %><% } %>"
-                />
-                <span class="input-group-text js-eye-fill" role="button">
-                  <i class="bi bi-eye-slash-fill"></i>
-                </span>
-              </div>
-              <%- include('partials/error', {error: errors.password}); %>
-            </dd>
-          </dl>
-          <dl class="d-sm-table-row">
-            <dt class="d-sm-table-cell fw-normal p-sm-2 text-sm-end"></dt>
-            <dd class="d-sm-table-cell w-100 p-sm-2">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  Remember Me
-                </label>
-              </div>
-            </dd>
-          </dl>
-          <dl class="d-sm-table-row">
-            <dt class="d-sm-table-cell fw-normal p-sm-2 text-sm-end"></dt>
-            <dd class="d-sm-table-cell w-100 p-sm-2">
-              <div class="d-flex flex-column flex-sm-row align-items-sm-center">
-                <button type="submit" class="btn btn-primary">Login</button>
-                <a class="text-decoration-none mt-2 mt-sm-0 ms-sm-2" href="#">
-                  Forgot Your Password?
-                </a>
-              </div>
-            </dd>
-          </dl>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('./partials/meta'); %>
+    <title>Login</title>
+    <%- include('./partials/common_assets'); %>
+    <script src="/static/javascripts/auth.js" type="module" defer></script>
+  </head>
+  <body class="d-flex flex-column vh-100 bg-light">
+    <%- include('./partials/header_auth'); %>
+    <div class="flex-grow-1 flex-shrink-0 container my-4">
+      <main>
+        <section>
+          <div class="card">
+            <h1 class="card-header h6">Login</h1>
+            <div class="card-body">
+              <form method="POST" action="/login">
+                <div class="form-box d-sm-table w-100 mx-auto">
+                  <dl class="d-sm-table-row">
+                    <dt class="d-sm-table-cell fw-normal p-sm-2 text-sm-end">
+                      <label for="inputEmail" class="text-nowrap">
+                        E-Mail Address
+                      </label>
+                    </dt>
+                    <dd class="d-sm-table-cell w-100 p-sm-2">
+                      <input
+                        type="text"
+                        name="email"
+                        id="inputEmail"
+                        class="form-control"
+                        value="<% if (values.email) { %><%= values.email %><% } %>"
+                      />
+                      <%- include('./partials/error', {error: errors.email}); %>
+                    </dd>
+                  </dl>
+                  <dl class="d-sm-table-row">
+                    <dt class="d-sm-table-cell fw-normal p-sm-2 text-sm-end">
+                      <label for="inputPassword" class="text-nowrap">
+                        Password
+                      </label>
+                    </dt>
+                    <dd class="d-sm-table-cell w-100 p-sm-2">
+                      <div class="input-group flex-nowrap">
+                        <input
+                          type="password"
+                          name="password"
+                          id="inputPassword"
+                          class="form-control"
+                          autocomplete="new-password"
+                          value="<% if (values.password) { %><%= values.password %><% } %>"
+                        />
+                        <span
+                          class="input-group-text js-eye-fill"
+                          role="button"
+                        >
+                          <i class="bi bi-eye-slash-fill"></i>
+                        </span>
+                      </div>
+                      <%- include('./partials/error', {error: errors.password});
+                      %>
+                    </dd>
+                  </dl>
+                  <dl class="d-sm-table-row">
+                    <dt
+                      class="d-sm-table-cell fw-normal p-sm-2 text-sm-end"
+                    ></dt>
+                    <dd class="d-sm-table-cell w-100 p-sm-2">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="flexCheckDefault"
+                        />
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Remember Me
+                        </label>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="d-sm-table-row">
+                    <dt
+                      class="d-sm-table-cell fw-normal p-sm-2 text-sm-end"
+                    ></dt>
+                    <dd class="d-sm-table-cell w-100 p-sm-2">
+                      <div
+                        class="
+                          d-flex
+                          flex-column flex-sm-row
+                          align-items-sm-center
+                        "
+                      >
+                        <button type="submit" class="btn btn-primary">
+                          Login
+                        </button>
+                        <a
+                          class="text-decoration-none mt-2 mt-sm-0 ms-sm-2"
+                          href="#"
+                        >
+                          Forgot Your Password?
+                        </a>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        <div class="alert alert-light border text-center mt-4" role="alert">
+          Don’t have an account
+          <a class="text-decoration-none ms-2" href="/register">
+            Create an account.
+          </a>
         </div>
-      </form>
+      </main>
     </div>
-  </div>
-</section>
-<div class="alert alert-light border text-center mt-4" role="alert">
-  Don’t have an account
-  <a class="text-decoration-none ms-2" href="/register"> Create an account. </a>
-</div>
+    <%- include('./partials/footer'); %>
+  </body>
+</html>

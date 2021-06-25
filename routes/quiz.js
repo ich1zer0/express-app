@@ -1,8 +1,8 @@
 const express = require('express');
-const notfoundController = require('../controllers/not-found');
+const quizController = require('../controllers/quiz');
 
 const router = express.Router();
 
-router.use(notfoundController);
+router.get('/', quizController.get);
 
 module.exports = router;
